@@ -12,7 +12,7 @@ const OrdersChartPage = () => {
   useEffect(() => {
     const fetchOrderData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/Cash-on-delivery-orders");
+        const response = await axios.get("https://plantsellingwebsite-backend.onrender.com/Cash-on-delivery-orders");
         setOrderData(response.data.data);
       } catch (error) {
         console.error("Error fetching order data:", error);
