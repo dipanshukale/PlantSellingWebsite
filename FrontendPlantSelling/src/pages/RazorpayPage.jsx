@@ -32,7 +32,7 @@ const RazorpayPage = () => {
 
   const createOrderOnBackend = async () => {
     try {
-      const response = await axios.post('http://localhost:8000/create-order', {
+      const response = await axios.post('https://plantsellingwebsite-backend.onrender.com/create-order', {
         customer,
         cart,
         total,
@@ -63,7 +63,7 @@ const RazorpayPage = () => {
       order_id: orderId, // Use the order ID from backend
       handler: async (response) => {
         try {
-          await axios.post('http://localhost:8000/payment-success', {
+          await axios.post('https://plantsellingwebsite-backend.onrender.com/payment-success', {
             orderId,
             paymentId: response.razorpay_payment_id,
             signature: response.razorpay_signature,
