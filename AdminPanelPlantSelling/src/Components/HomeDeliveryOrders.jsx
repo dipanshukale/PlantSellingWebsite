@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { X } from 'lucide-react'; // Import icon for close button
+import { X } from 'lucide-react'; 
 
 const HomeDeliveryOrders = () => {
 	const [homeOrders, setHomeOrders] = useState([]);
@@ -11,7 +11,7 @@ const HomeDeliveryOrders = () => {
 	useEffect(() => {
 		const fetchHomeOrders = async () => {
 			try {
-				const response = await axios.get("http://localhost:8000/Cash-on-delivery-orders");
+				const response = await axios.get("https://plantsellingwebsite-backend.onrender.com/Cash-on-delivery-orders");
 				setHomeOrders(response.data.data);
 			} catch (error) {
 				console.error("Error fetching home delivery orders:", error);
@@ -23,7 +23,7 @@ const HomeDeliveryOrders = () => {
 	// Update order status
 	const updateOrderStatus = async (orderId, status) => {
 		try {
-			await axios.put(`http://localhost:8000/Cash-on-delivery-orders/${orderId}`, {
+			await axios.put(`https://plantsellingwebsite-backend.onrender.com/Cash-on-delivery-orders/${orderId}`, {
 				orderStatus: status,
 			});
 			setHomeOrders((prevOrders) =>
@@ -39,7 +39,7 @@ const HomeDeliveryOrders = () => {
 	// Update payment status
 	const updatePaymentStatus = async (orderId, status) => {
 		try {
-			await axios.put(`http://localhost:8000/Cash-on-delivery-orders/${orderId}/payment`, {
+			await axios.put(`https://plantsellingwebsite-backend.onrender.com/Cash-on-delivery-orders/${orderId}/payment`, {
 				paymentStatus: status,
 			});
 			setHomeOrders((prevOrders) =>
