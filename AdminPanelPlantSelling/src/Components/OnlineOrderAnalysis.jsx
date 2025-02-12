@@ -11,7 +11,7 @@ const OnlineOrdersAnalysis = () => {
   useEffect(() => {
     const fetchOrderData = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/online-orders");
+        const response = await axios.get("https://plantsellingwebsite-backend.onrender.com/online-orders");
         setOrderData(response.data.data);
       } catch (error) {
         console.error("Error fetching order data:", error);
