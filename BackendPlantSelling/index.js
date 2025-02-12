@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // CORS settings to allow requests from the frontend
 app.use(
 	cors({
-		origin: ["http://localhost:5173","http://localhost:5174"],
+		origin: ["https://plantsellingwebsite-adminpanel.onrender.com","https://plantsellingwebsite.onrender.com"],
 		methods: ["POST", "PUT", "DELETE", "GET"],
 		credentials: true,
 	})
