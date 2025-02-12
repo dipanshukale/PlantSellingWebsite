@@ -13,7 +13,7 @@ const AdminContactQueries = () => {
   useEffect(() => {
     const fetchQueries = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/contact-queries");
+        const response = await axios.get("https://plantsellingwebsite-backend.onrender.com/contact-queries");
         setQueries(response.data.data);
       } catch (error) {
         console.error("Error fetching queries:", error);
@@ -39,7 +39,7 @@ const AdminContactQueries = () => {
   const handleEmailSubmit = async () => {
     setIsLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/send-email", {
+      const response = await axios.post("https://plantsellingwebsite-backend.onrender.com/send-email", {
         email: selectedQuery.email,
         message: emailMessage,
       });
@@ -55,7 +55,7 @@ const AdminContactQueries = () => {
   const handleDeleteQuery = async (queryId) => {
     setIsDeleting(true);
     try {
-      await axios.delete(`http://localhost:8000/contact-queries/${queryId}`);
+      await axios.delete(`https://plantsellingwebsite-backend.onrender.com/contact-queries/${queryId}`);
       setQueries(queries.filter((query) => query._id !== queryId)); // Remove the query from state
     } catch (error) {
       console.error("Error deleting query:", error);
