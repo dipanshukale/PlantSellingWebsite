@@ -12,9 +12,11 @@ const AdminContactQueries = () => {
   // Fetching queries from the backend API
   useEffect(() => {
     const fetchQueries = async () => {
+      setIsLoading(true);
       try {
         const response = await axios.get("https://plantsellingwebsite-backend.onrender.com/contact-queries");
         setQueries(response.data.data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching queries:", error);
       }
@@ -66,6 +68,7 @@ const AdminContactQueries = () => {
 
   return (
     <div className="p-8">
+      {isLoading &&  <p className="font-bold text-2xl text-center mb-8">Loading...</p>}
       <h1 className="text-3xl font-bold font-serif text-center mb-6">Customer Queries</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {queries.length > 0 ? (
