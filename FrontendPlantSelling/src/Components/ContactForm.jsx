@@ -16,7 +16,7 @@ const ContactPage = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/contact",
+        "https://plantsellingwebsite-backend.onrender.com/contact",
         {
           email,
           message,
