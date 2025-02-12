@@ -11,7 +11,7 @@ const DashBoard = () => {
 	useEffect(() => {
 		const fetchOnlineOrders = async () => {
 			try {
-				const response = await axios.get("http://localhost:8000/Online-orders");
+				const response = await axios.get("https://plantsellingwebsite-backend.onrender.com/Online-orders");
 				setOnlineOrders(response.data.data);
 			} catch (error) {
 				console.error("Error fetching online orders:", error);
