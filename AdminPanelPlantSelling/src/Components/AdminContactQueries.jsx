@@ -68,8 +68,8 @@ const AdminContactQueries = () => {
 
   return (
     <div className="p-8">
-      {isLoading &&  <p className="font-bold text-2xl text-center mb-8">Loading...</p>}
       <h1 className="text-3xl font-bold font-serif text-center mb-6">Customer Queries</h1>
+      {isLoading &&  <p className="font-bold text-2xl text-center mb-8">Loading...</p>}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {queries.length > 0 ? (
           queries.map((query) => (
@@ -110,7 +110,7 @@ const AdminContactQueries = () => {
             </div>
           ))
         ) : (
-          <p className="text-center col-span-full">No queries found</p>
+          <p className="text-center col-span-full"></p>
         )}
       </div>
 
