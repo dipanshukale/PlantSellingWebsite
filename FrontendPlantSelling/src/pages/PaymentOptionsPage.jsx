@@ -17,7 +17,7 @@ const PaymentOptionsPage = () => {
 		try {
 			// Send the COD order details to the backend
 			const response = await axios.post(
-				"http://localhost:8000/cash-on-delivery",
+				"https://plantsellingwebsite-backend.onrender.com/cash-on-delivery",
 				{
 					customer,
 					cart,
