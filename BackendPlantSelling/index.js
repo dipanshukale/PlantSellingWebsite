@@ -87,7 +87,7 @@ app.post("/payment-success", async (req, res) => {
 	const { orderId, paymentId, signature } = req.body;
 
 	// Your Razorpay secret key from the Razorpay dashboard
-	const razorpaySecret = Manjusha;
+	const razorpaySecret = manjusha;
 
 	try {
 		// Create a HMAC using the orderId and paymentId
