@@ -73,9 +73,6 @@ const RazorpayPage = () => {
           });
           // Redirect to confirmation page on success
           navigate('/order-confirmation', { state: { customer, paymentMode: 'Online', orderId } });
-          console.log(customer);
-          console.log(orderId);
-          console.log(response);
         } catch (error) {
           console.error('Error updating payment on backend', error);
           alert('Payment successful, but failed to update the backend.');
