@@ -35,7 +35,7 @@ app.use(
 
 // Initialize Razorpay with environment variables
 const razorpayInstance = new Razorpay({
-	key_id: process.env.RAZORPAY_KEY_ID, // Razorpay key ID from environment
+	key_id: "rzp_live_MZOV3VDRnsf8OU", // Razorpay key ID from environment
 	key_secret: process.env.RAZORPAY_SECRET, // Razorpay secret from environment
 });
 
