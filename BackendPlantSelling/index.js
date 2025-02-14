@@ -35,8 +35,8 @@ app.use(
 
 // Initialize Razorpay with environment variables
 const razorpayInstance = new Razorpay({
-	key_id: "rzp_live_MZOV3VDRnsf8OU", // Razorpay key ID from environment
-	key_secret: process.env.RAZORPAY_SECRET, // Razorpay secret from environment
+	key_id: "rzp_live_zFquZDYMOOSpfX", // Razorpay key ID from environment
+	key_secret: "8V1yLdylvPPVIAx3tu5MTNFH", // Razorpay secret from environment
 });
 
 // Create an order route
@@ -86,7 +86,7 @@ app.post("/payment-success", async (req, res) => {
 	const { orderId, paymentId, signature } = req.body;
 
 	// Your Razorpay secret key from the Razorpay dashboard
-	const razorpaySecret = process.env.RAZORPAY_WEBHOOK_SECRET;
+	const razorpaySecret = "manjushakale3082";
 	try {
 		const shasum = crypto.createHmac("sha256", razorpaySecret);
 		shasum.update(`${orderId}|${paymentId}`);
