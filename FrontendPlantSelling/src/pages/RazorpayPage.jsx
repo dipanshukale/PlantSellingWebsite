@@ -72,7 +72,6 @@ const RazorpayPage = () => {
       },
       prefill: {
         name: customer.name,
-        email: customer.email || "",
         contact: customer.phone || "",
       },
       theme: {
