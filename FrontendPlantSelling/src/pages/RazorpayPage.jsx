@@ -7,23 +7,30 @@ const RazorpayPage = () => {
   const navigate = useNavigate();
   const { customer, total, cart } = location.state || {};
 
+  const loadRazorpayScript = () => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = () => resolve(true);
+    script.onerror = () => resolve(false);
+    document.body.appendChild(script);
+  });
+};
+
   useEffect(() => {
     if (!customer || !total || !cart) {
       alert("Missing order details");
       navigate("/");
       return;
     }
-    loadRazorpayScript();
+    loadRazorpayScript().then((loaded) => {
+      if(loaded) {
+        createOrderOnBackend();
+      }else{
+        alert("Failed to load razorpay SDk");
+      };
+    });
   }, [customer, total, cart, navigate]);
-
-  const loadRazorpayScript = () => {
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
-    script.onload = createOrderOnBackend;
-    script.onerror = () => alert("Failed to load Razorpay. Check your internet.");
-    document.body.appendChild(script);
-  };
 
   const createOrderOnBackend = async () => {
     try {
