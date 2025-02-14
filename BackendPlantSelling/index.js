@@ -57,7 +57,6 @@ app.post("/create-order", async (req, res) => {
 	};
 
 	try {
-		console.log("Creating the order...");
 		// Create a Razorpay order
 		const order = await razorpayInstance.orders.create(options);
 
@@ -111,9 +110,7 @@ app.post("/payment-success", async (req, res) => {
 			await order.save();
 			res.json({ message: "Payment successful and order updated" });
 		} else {
-			res
-				.status(400)
-				.json({ message: "Invalid signature, payment verification failed" });
+			res.status(400).json({ message: "Invalid signature, payment verification failed" });
 		}
 	} catch (error) {
 		res.status(500).json({ message: "Internal server error" });
