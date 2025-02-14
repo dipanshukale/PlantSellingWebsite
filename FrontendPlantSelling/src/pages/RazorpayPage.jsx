@@ -54,7 +54,7 @@ const RazorpayPage = () => {
     }
 
     const options = {
-      key:"rzp_live_MZOV3VDRnsf8OU",
+      key:"rzp_live_zFquZDYMOOSpfX",
       amount: total * 100,
       currency: "INR",
       name: customer.name,
