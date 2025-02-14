@@ -41,7 +41,7 @@ const razorpayInstance = new Razorpay({
 
 // Create an order route
 app.post("/create-order", async (req, res) => {
-	const { customer, total, cart } = req.body;
+	const { customer, cart, total } = req.body;
 
 	// Validate the request body
 	if (!customer || !total || !cart) {
